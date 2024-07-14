@@ -21,6 +21,9 @@ class AuthController extends GetxController {
   final Rx<UserData?> _userData = UserData().obs;
   UserData? get userData => _userData.value;
 
+  final Rx<bool> _isAppOwner = false.obs;
+  bool get isAppOwner => _isAppOwner.value;
+
   @override
   void onInit() async {
     super.onInit();
@@ -100,6 +103,7 @@ class AuthController extends GetxController {
 
       Get.offAll(HomePage());
     } catch (e) {
+      print(e.toString());
       Get.back();
 
       AwesomeDialog(
@@ -158,6 +162,21 @@ class AuthController extends GetxController {
         uid: querySnapshot.docs[0]['uid'],
       );
 
+      if (_userData.value?.email == "nourmasoud17@gmail.com") {
+        _isAppOwner.value = true;
+      } else if (_userData.value?.email == "esoo22288@gmail.com") {
+        _isAppOwner.value = true;
+      } else if (_userData.value?.email == "mhasenmagdy69@gmail.com") {
+        _isAppOwner.value = true;
+      } else if (_userData.value?.email == "rewandiaf@gmail.com") {
+        _isAppOwner.value = true;
+      } else if (_userData.value?.email == "mashallahayman@gmail.com") {
+        _isAppOwner.value = true;
+      } else if (_userData.value?.email == "dodiadel384@gmail.com") {
+        _isAppOwner.value = true;
+      } else {
+        _isAppOwner.value = false;
+      }
       AwesomeDialog(
         context: Get.context!,
         dialogType: DialogType.success,

@@ -43,88 +43,93 @@ class ChatPage extends GetWidget<ChatController> {
               color: Colors.white,
             ),
             onPressed: () {
-              AwesomeDialog(
-                context: Get.context!,
-                dialogType: DialogType.info,
-                animType: AnimType.rightSlide,
-                btnOkColor: CustomColors.mainBlue,
-                btnOkText: "Pay",
-                body: Center(
-                  child: Column(
-                    children: [
-                      Text(
-                        'Payment 100 EGP',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: CustomColors.mainBlue,
-                          fontWeight: FontWeight.bold,
+              if (auth.isAppOwner) {
+                controller.sendMessage("@==/videoCall/==@");
+                Get.to(CallPage());
+              } else {
+                AwesomeDialog(
+                  context: Get.context!,
+                  dialogType: DialogType.info,
+                  animType: AnimType.rightSlide,
+                  btnOkColor: CustomColors.mainBlue,
+                  btnOkText: "Pay",
+                  body: Center(
+                    child: Column(
+                      children: [
+                        Text(
+                          'Payment 100 EGP',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: CustomColors.mainBlue,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      TextField(
-                        decoration: InputDecoration(
-                          labelText: 'card number',
-                          // Revome any border and make the bg color light blue
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(
+                        SizedBox(
+                          height: 20,
+                        ),
+                        TextField(
+                          decoration: InputDecoration(
+                            labelText: 'card number',
+                            // Revome any border and make the bg color light blue
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide(
+                                color: CustomColors.mainBlue,
+                              ),
+                            ),
+                            prefixIcon: Icon(
+                              Icons.credit_card,
                               color: CustomColors.mainBlue,
                             ),
                           ),
-                          prefixIcon: Icon(
-                            Icons.credit_card,
-                            color: CustomColors.mainBlue,
-                          ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      TextField(
-                        decoration: InputDecoration(
-                          labelText: 'CVC',
-                          // Revome any border and make the bg color light blue
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(
+                        SizedBox(
+                          height: 20,
+                        ),
+                        TextField(
+                          decoration: InputDecoration(
+                            labelText: 'CVC',
+                            // Revome any border and make the bg color light blue
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide(
+                                color: CustomColors.mainBlue,
+                              ),
+                            ),
+                            prefixIcon: Icon(
+                              Icons.numbers,
                               color: CustomColors.mainBlue,
                             ),
                           ),
-                          prefixIcon: Icon(
-                            Icons.numbers,
-                            color: CustomColors.mainBlue,
-                          ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      TextField(
-                        decoration: InputDecoration(
-                          labelText: 'Card Expiration',
-                          // Revome any border and make the bg color light blue
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(
+                        SizedBox(
+                          height: 20,
+                        ),
+                        TextField(
+                          decoration: InputDecoration(
+                            labelText: 'Card Expiration',
+                            // Revome any border and make the bg color light blue
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide(
+                                color: CustomColors.mainBlue,
+                              ),
+                            ),
+                            prefixIcon: Icon(
+                              Icons.date_range_outlined,
                               color: CustomColors.mainBlue,
                             ),
                           ),
-                          prefixIcon: Icon(
-                            Icons.date_range_outlined,
-                            color: CustomColors.mainBlue,
-                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                btnOkOnPress: () {
-                  controller.sendMessage("@==/videoCall/==@");
-                  Get.to(CallPage());
-                },
-              ).show();
+                  btnOkOnPress: () {
+                    controller.sendMessage("@==/videoCall/==@");
+                    Get.to(CallPage());
+                  },
+                ).show();
+              }
             },
           ),
         ],

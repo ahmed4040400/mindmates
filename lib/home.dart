@@ -217,7 +217,10 @@ class _HomePageState extends State<HomePage> {
                   onPressed: () {},
                 ),
                 Column(mainAxisSize: MainAxisSize.min, children: [
-                  Text(" ${controller.userData?.name ?? ''}",
+                  Text(
+                      controller.isAppOwner
+                          ? ("${controller.userData!.name} (owner)")
+                          : controller.userData?.name ?? '',
                       style: const TextStyle(
                         color: Colors.black,
                         fontSize: 16,
@@ -297,93 +300,107 @@ class _MyHomePageState extends State<MyHomePage> {
                       ratingStars: i['ratingStars'],
                       imgPath: i['imgPath'],
                       onTap: () {
+                        print(controller.isAppOwner);
                         if (i['online'] && !i['busy']) {
-                          AwesomeDialog(
-                            context: Get.context!,
-                            dialogType: DialogType.info,
-                            animType: AnimType.rightSlide,
-                            btnOkColor: CustomColors.mainBlue,
-                            btnOkText: "Pay",
-                            body: Center(
-                              child: Column(
-                                children: [
-                                  Text(
-                                    'Payment 50 EGP',
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      color: CustomColors.mainBlue,
-                                      fontWeight: FontWeight.bold,
+                          if (controller.isAppOwner) {
+                            Get.to(
+                                ChatPage(
+                                  receiverId: "CVpiWRxXy1NHA0mN8eR6Kxekzen2",
+                                ),
+                                binding: ChatBinding(
+                                    'CVpiWRxXy1NHA0mN8eR6Kxekzen2'));
+                          } else {
+                            AwesomeDialog(
+                              context: Get.context!,
+                              dialogType: DialogType.info,
+                              animType: AnimType.rightSlide,
+                              btnOkColor: CustomColors.mainBlue,
+                              btnOkText: "Pay",
+                              body: Center(
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      'Payment 50 EGP',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        color: CustomColors.mainBlue,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  TextField(
-                                    decoration: InputDecoration(
-                                      labelText: 'card number',
-                                      // Revome any border and make the bg color light blue
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                        borderSide: BorderSide(
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    TextField(
+                                      decoration: InputDecoration(
+                                        labelText: 'card number',
+                                        // Revome any border and make the bg color light blue
+                                        border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          borderSide: BorderSide(
+                                            color: CustomColors.mainBlue,
+                                          ),
+                                        ),
+                                        prefixIcon: Icon(
+                                          Icons.credit_card,
                                           color: CustomColors.mainBlue,
                                         ),
                                       ),
-                                      prefixIcon: Icon(
-                                        Icons.credit_card,
-                                        color: CustomColors.mainBlue,
-                                      ),
                                     ),
-                                  ),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  TextField(
-                                    decoration: InputDecoration(
-                                      labelText: 'CVC',
-                                      // Revome any border and make the bg color light blue
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                        borderSide: BorderSide(
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    TextField(
+                                      decoration: InputDecoration(
+                                        labelText: 'CVC',
+                                        // Revome any border and make the bg color light blue
+                                        border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          borderSide: BorderSide(
+                                            color: CustomColors.mainBlue,
+                                          ),
+                                        ),
+                                        prefixIcon: Icon(
+                                          Icons.numbers,
                                           color: CustomColors.mainBlue,
                                         ),
                                       ),
-                                      prefixIcon: Icon(
-                                        Icons.numbers,
-                                        color: CustomColors.mainBlue,
-                                      ),
                                     ),
-                                  ),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  TextField(
-                                    decoration: InputDecoration(
-                                      labelText: 'Card Expiration',
-                                      // Revome any border and make the bg color light blue
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                        borderSide: BorderSide(
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    TextField(
+                                      decoration: InputDecoration(
+                                        labelText: 'Card Expiration',
+                                        // Revome any border and make the bg color light blue
+                                        border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          borderSide: BorderSide(
+                                            color: CustomColors.mainBlue,
+                                          ),
+                                        ),
+                                        prefixIcon: Icon(
+                                          Icons.date_range_outlined,
                                           color: CustomColors.mainBlue,
                                         ),
                                       ),
-                                      prefixIcon: Icon(
-                                        Icons.date_range_outlined,
-                                        color: CustomColors.mainBlue,
-                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                            btnOkOnPress: () {
-                              Get.to(
-                                  ChatPage(
-                                    receiverId: "CVpiWRxXy1NHA0mN8eR6Kxekzen2",
-                                  ),
-                                  binding: ChatBinding(
-                                      'CVpiWRxXy1NHA0mN8eR6Kxekzen2'));
-                            },
-                          ).show();
+                              btnOkOnPress: () {
+                                Get.to(
+                                    ChatPage(
+                                      receiverId:
+                                          "CVpiWRxXy1NHA0mN8eR6Kxekzen2",
+                                    ),
+                                    binding: ChatBinding(
+                                        'CVpiWRxXy1NHA0mN8eR6Kxekzen2'));
+                              },
+                            ).show();
+                          }
                         } else if (!i['online']) {
                           Get.closeAllSnackbars();
 
