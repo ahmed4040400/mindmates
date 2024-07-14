@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "1043094660763",
+    "project_id": "mindmates-b97a0",
+    "storage_bucket": "mindmates-b97a0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1043094660763:android:93bc395395f1ab9704483e",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOY-fROsMbrIRwuYmBNRhrhx86gWL_hYM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1043094660763:android:bd15e7fc7222d98204483e",
+        "android_client_info": {
+          "package_name": "com.mindmates.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOY-fROsMbrIRwuYmBNRhrhx86gWL_hYM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1043094660763:android:ff9ce98c016bb84004483e",
+        "android_client_info": {
+          "package_name": "dev.flutterexplained.webrtc_tutorial"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOY-fROsMbrIRwuYmBNRhrhx86gWL_hYM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
