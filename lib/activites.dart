@@ -151,7 +151,7 @@ class ActivitiesPage extends StatelessWidget {
           children: [
             for (var i = 0; i < activitiesForADHD.length; i++)
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(0.0),
                 child: InkWell(
                   onTap: () {
                     AwesomeDialog(

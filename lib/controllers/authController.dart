@@ -174,6 +174,14 @@ class AuthController extends GetxController {
         _isAppOwner.value = true;
       } else if (_userData.value?.email == "dodiadel384@gmail.com") {
         _isAppOwner.value = true;
+      } else if (_userData.value?.email == "shahdmabrouk109@gmail.com") {
+        _isAppOwner.value = true;
+      } else if (_userData.value?.email == "waleahmed756@gmail.com") {
+        _isAppOwner.value = true;
+      } else if (_userData.value?.email == "ktmst990@gmail.com") {
+        _isAppOwner.value = true;
+      } else if (_userData.value?.email == "jnjnjhad@gmail.com") {
+        _isAppOwner.value = true;
       } else {
         _isAppOwner.value = false;
       }
